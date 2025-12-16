@@ -1,0 +1,185 @@
+\documentclass[11pt]{article}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} % for pdfLaTeX
+\usepackage{lmodern}        % vector fonts; fixes copy/paste artifacts
+\usepackage{microtype}      % better spacing and fewer overfull boxes
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={Rule Externalization and the Decision--Verification Shift},
+  pdfauthor={Yanlin Li},
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\geometry{margin=1in}
+
+\title{Rule Externalization and the Decision--Verification Shift}
+\author{YANLIN LI\\
+\small Independent Researcher}
+\date{}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{observation}{Observation}
+\newtheorem{proposition}{Proposition}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We examine the structural role of rule availability in computational decision
+problems. By modeling rules as explicit parameters, we formalize a distinction
+between direct decision under a fixed and internalized rule structure and
+verification when such structure is externalized or left implicit. We show that
+externalization of rules induces a shift from direct decision procedures to
+verification relative to auxiliary information, yielding a problem formulation
+characteristic of nondeterministic polynomial-time verification. No claims are
+made regarding separations between complexity classes; the analysis is purely
+structural.
+\end{abstract}
+
+\section{Introduction}
+
+Decision problems in complexity theory are typically formulated relative to a
+fixed and shared rule structure. Under this assumption, the computational task
+is to decide membership of an instance in a language using a procedure that
+implicitly incorporates those rules.
+
+\noindent
+In practice and in theory, however, rules governing validity or interpretation
+may be incomplete, implicit, or external to the decision procedure itself. In
+such cases, correctness is often established not by direct decision but by
+verification relative to additional information encoding the missing structure.
+
+\noindent
+This paper formalizes this distinction. We show that when rule structure is
+externalized, decision tasks naturally assume a verification-based form.
+The resulting formulation aligns with the standard definition of
+$\mathbf{NP}$, not as a complexity separation but as a change of interface.
+
+\section{Rule-Parameterized Decision Problems}
+
+Let $\Sigma$ be a finite alphabet.
+
+\begin{definition}[Rule Structure]
+A \emph{rule structure} is represented by a finite binary string
+$r \in \{0,1\}^*$.
+\end{definition}
+
+For each fixed rule structure $r$, let
+\[
+L_r \subseteq \Sigma^*
+\]
+denote a language determined by $r$.
+
+The associated decision task is:
+\[
+\textsf{DECIDE}_r(x) =
+\begin{cases}
+1 & \text{if } x \in L_r, \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+
+\begin{definition}[Internalized Decision]
+The rule structure $r$ is said to be \emph{internalized} if it is fixed and
+shared by the decision procedure.
+
+\noindent
+The task $\textsf{DECIDE}_r$ admits \emph{direct efficient decision} if there
+exists a deterministic polynomial-time algorithm $A_r$ such that
+\[
+A_r(x) = \textsf{DECIDE}_r(x)
+\quad \text{for all } x \in \Sigma^*.
+\]
+\end{definition}
+
+\noindent
+In this setting, the decision procedure operates entirely within the given rule
+framework.
+
+\section{Externalized Rules and Verification Interfaces}
+
+We now consider the case in which the rule structure $r$ is not internalized by
+the decision procedure.
+
+\noindent
+Instead of direct decision, correctness relative to $r$ is established through
+auxiliary information.
+
+\begin{definition}[Verification Predicate]
+A \emph{verification predicate} is a polynomial-time computable function
+\[
+V : \{0,1\}^* \times \Sigma^* \times \{0,1\}^* \to \{0,1\},
+\]
+where $V(r,x,w)=1$ certifies that $x \in L_r$ relative to auxiliary information
+$w$.
+\end{definition}
+
+\noindent
+Using $V$, define the verification language
+\[
+L^{\exists} =
+\{ (r,x) \mid \exists w \in \{0,1\}^* \text{ such that } V(r,x,w)=1 \}.
+\]
+
+\begin{proposition}
+The language $L^{\exists}$ belongs to $\mathbf{NP}$.
+\end{proposition}
+
+\begin{proof}
+Membership of $(r,x)$ in $L^{\exists}$ is witnessed by a certificate $w$ whose
+validity can be verified in polynomial time by $V$. This satisfies the defining
+property of $\mathbf{NP}$.
+\end{proof}
+
+\section{Decision--Verification Interface Shift}
+
+The preceding constructions formalize a structural distinction:
+
+\begin{observation}[Rule Externalization and Verification Shift]
+Efficient decision procedures presuppose a fixed and explicit rule structure
+internal to the problem formulation. When such structure is externalized or left
+implicit, the task no longer admits direct decision and instead becomes
+verification relative to auxiliary information encoding the missing rules.
+\end{observation}
+
+\noindent
+This shift reflects a change in computational \emph{interface} rather than in
+computational power. The underlying language family remains unchanged, but the
+mode by which correctness is established transitions from direct decision to
+verification.
+
+\section{Scope and Non-Claims}
+
+This work makes no claims regarding separations between complexity classes,
+including $\mathbf{P}$ and $\mathbf{NP}$. The constructions presented here do not
+modify standard definitions and do not assert the existence or non-existence of
+any class inclusions beyond those definitional in nature.
+
+\noindent
+The purpose of this paper is solely to isolate and formalize the structural
+effect of rule externalization on decision problem formulation.
+
+\section{Conclusion}
+
+By treating rule structures as explicit parameters, we have shown that the
+availability of internalized rules is a necessary condition for direct decision
+interfaces. When such rules are externalized, decision problems naturally
+assume a verification-based form consistent with nondeterministic polynomial-time
+verification.
+
+\noindent
+This observation clarifies a structural mechanism underlying the distinction
+between decision and verification and may inform further boundary-based analyses
+of computational problem formulations.
+
+% No bibliography in this short note.
+\end{document}

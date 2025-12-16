@@ -1,0 +1,221 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Languages, Parameters, and the Well-Formedness of the P vs NP Question}
+\author{YANLIN LI\\
+\small Independent Researcher}
+\date{}
+
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\usepackage{amsthm}
+\newtheorem{observation}{Observation}
+
+% --- add-only: complexity class macros ---
+\newcommand{\NP}{\mathbf{NP}}
+\newcommand{\coNP}{\mathbf{coNP}}
+% --- end ---
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The classical P vs NP question is formulated over languages defined as subsets of $\Sigma^*$. In practice, however, languages arise from layered structures including syntax, semantics, and rule-based admissibility constraints. This paper makes explicit the parameters underlying language formation and shows that meaningful comparison between P and NP requires these parameters to be held fixed. We further provide concrete parameter systems under which P and NP collapse, as well as systems under which they are strictly separated, without appeal to unproven complexity conjectures. Motivated by considerations of structural invertibility, we examine the conditions under which feasibility comparisons between P and NP are well-formed.
+\end{abstract}
+
+
+\begin{proposition}[Type Consistency]
+A comparison between $\mathsf{P}$ and $\mathsf{NP}$ is meaningful only when both
+are evaluated under the same parameter system $\Theta$.
+\end{proposition}
+
+\begin{remark}[Type-Consistent Feasibility]
+We refer to the requirement that feasibility predicates be evaluated under a
+shared parameter system as \emph{type-consistent feasibility}. Comparisons that
+violate this requirement are ill-typed and lack a well-defined interpretation.
+\end{remark}
+
+
+
+\section{Formal Languages}
+
+\begin{definition}[Alphabet and Language]
+Let $\Sigma$ be a finite alphabet. A \emph{formal language} over $\Sigma$ is any
+set
+\[
+L \subseteq \Sigma^{*},
+\]
+where $\Sigma^{*}$ denotes the set of all finite strings over $\Sigma$.
+\end{definition}
+
+\begin{remark}
+This definition is intentionally minimal. It treats languages purely as sets of
+strings and does not distinguish between syntactic well-formedness, semantic
+interpretation, or contextual legitimacy.
+\end{remark}
+
+\section{Classical Complexity Classes}
+
+\begin{definition}[$\mathbf{P}$]
+A language $L \subseteq \Sigma^{*}$ is in $\mathbf{P}$ if there exists a
+deterministic Turing machine deciding membership in $L$ in polynomial time.
+\end{definition}
+
+\begin{definition}[$\mathbf{NP}$]
+A language $L \subseteq \Sigma^{*}$ is in $\mathbf{NP}$ if there exists a
+polynomial-time verifier $V$ such that
+\[
+x \in L \iff \exists y \text{ with } V(x,y)=1,
+\]
+where the verification runs in time polynomial in $|x|$.
+\end{definition}
+
+\begin{remark}
+In both definitions, the sole explicit object of classification is the language
+$L$. Encoding choices, admissibility rules, and interpretation constraints are
+implicit.
+\end{remark}
+
+\section{Languages as Parameterized Constructions}
+
+We now make explicit the components commonly suppressed in the classical view.
+
+\begin{definition}[Language Parameters]
+Let
+\[
+\Theta = (\Sigma, \mathsf{Syn}, \mathsf{Sem}, \mathsf{Prag}),
+\]
+where $\mathsf{Syn}$ specifies syntactic well-formedness,
+$\mathsf{Sem}$ provides semantic interpretation, and
+$\mathsf{Prag}$ imposes rule-based admissibility constraints.
+\end{definition}
+
+\begin{definition}[Generated Language]
+The language induced by $\Theta$ is
+\[
+\mathcal{L}(\Theta) \subseteq \Sigma^{*},
+\]
+consisting of strings admissible under the combined constraints of $\Theta$.
+\end{definition}
+
+\section{Parameterized Feasibility}
+
+\begin{definition}[Parameterized Predicates]
+Define predicates
+\[
+\mathsf{P}(\Theta)=1 \iff \mathcal{L}(\Theta)\in\mathbf{P},\qquad
+\mathsf{NP}(\Theta)=1 \iff \mathcal{L}(\Theta)\in\mathbf{NP}.
+\]
+\end{definition}
+
+\begin{remark}
+This does not alter classical complexity theory. It makes explicit that P and NP
+are evaluated relative to a fixed parameter bundle $\Theta$.
+\end{remark}
+
+\section{Well-Formed Comparison}
+
+\begin{proposition}[Type Consistency]
+A comparison between $P$ and $NP$ is meaningful only when both are evaluated
+under the same parameter system $\Theta$.
+Equivalently, statements of the form ``$P(\Theta_1)$ versus $NP(\Theta_2)$''
+are well-formed only when $\Theta_1=\Theta_2$.
+\end{proposition}
+
+\begin{proof}
+Fix the ambient complexity classes $P$ and $NP$ as classes of languages
+(i.e., subsets of $\Sigma^*$), as in Definitions~2--3.
+Under Definition~5, each parameter bundle $\Theta$ induces a specific language
+object $L(\Theta)\subseteq \Sigma^*$.
+
+Under Definition~6, the feasibility predicates are abbreviations for class
+membership of that induced language:
+\[
+P(\Theta)=1 \;\Longleftrightarrow\; L(\Theta)\in P,
+\qquad
+NP(\Theta)=1 \;\Longleftrightarrow\; L(\Theta)\in NP.
+\]
+Hence any combined statement comparing $P(\Theta_1)$ and $NP(\Theta_2)$ is,
+upon expansion, a statement simultaneously about the two language objects
+$L(\Theta_1)$ and $L(\Theta_2)$.
+
+If $\Theta_1\neq \Theta_2$, then in general $L(\Theta_1)\neq L(\Theta_2)$
+because $\Theta$ contains syntactic, semantic, and admissibility components
+that determine which strings are included (Definition~4).
+Therefore, a cross-parameter comparison such as
+\[
+P(\Theta_1) \ \text{vs.}\ NP(\Theta_2)
+\]
+does not compare two properties of a single fixed object, but rather compares
+properties of \emph{distinct} objects without any specified identification map
+or correspondence between them.
+
+In other words, the judgement ``compare $P$ and $NP$'' is type-correct only
+relative to a single shared $\Theta$ that fixes the underlying language
+$L(\Theta)$; otherwise the comparison is ill-typed because the implicit
+subject of classification varies across the two predicates.
+\end{proof}
+
+\begin{observation}[Decision--Verification Asymmetry]
+Even under a fixed parameter system $\Theta$, the feasibility of decision
+does not, in general, entail the feasibility of verification.
+That is, the existence of a polynomial-time decision procedure for $L(\Theta)$
+does not guarantee the existence of an admissible polynomial-time
+verification relation as required by $\NP(\Theta)$.
+\end{observation}
+
+\section{Concrete Instances}
+
+We now give explicit realizations under fixed parameter systems.
+
+\subsection{Collapse by Exclusion}
+
+Let $\Theta_1$ impose the rule that no witness is ever legitimate. Then
+\[
+\mathsf{P}(\Theta_1)=\mathsf{NP}(\Theta_1)=\varnothing.
+\]
+
+\subsection{Finite Input Collapse}
+
+Let $\Theta_2$ restrict admissible inputs to a finite set. Then all languages are
+decidable by constant-time lookup, yielding
+\[
+\mathsf{P}(\Theta_2)=\mathsf{NP}(\Theta_2).
+\]
+
+\subsection{Structural Separation}
+
+Let $\Theta_3$ permit existence and verification of legitimate witnesses while
+forbidding systematic construction. Then there exists a language $L$ such that
+\[
+L\in\mathsf{NP}(\Theta_3)\quad\text{but}\quad L\notin\mathsf{P}(\Theta_3),
+\]
+and hence
+\[
+\mathsf{P}(\Theta_3)\subsetneq\mathsf{NP}(\Theta_3).
+\]
+
+\section{Conclusion}
+
+The relation between P and NP is not a property of languages alone, but of
+languages interpreted within a fixed parameter system. Once these parameters are
+made explicit, both equality and strict separation arise as realized states,
+rather than conjectural outcomes.
+Once the parameters underlying language formation are made explicit,
+the classical P vs NP question corresponds to a highly constrained slice
+of a broader feasibility landscape. Within this broader framework, separation between P and NP arises naturally
+whenever existence is decoupled from systematic constructibility.
+
+\section*{Acknowledgements}
+
+This work represents an early-stage foundational exploration intended to
+inform the future development of the Open Governance Modeling Framework (OGMF).
+No formal organization or research collective under this name has been
+established at the time of writing.
+
+\end{document}
