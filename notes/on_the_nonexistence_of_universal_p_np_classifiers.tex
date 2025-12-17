@@ -1,0 +1,93 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\newtheorem{note}{Note}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+
+\title{On the Non-Existence of Universal $\mathbf{P}/\mathbf{NP}$ Classifiers}
+
+\author{Yanlin Li}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note clarifies a structural limitation on complexity classification.
+Even when a rule and parameter system is fully fixed, there is in general
+no universal procedure that takes an arbitrary problem description and
+decides whether it belongs to $\mathbf{P}$ or $\mathbf{NP}$.
+We further observe that such classification may become possible once the
+admissible rule system and problem description space are sufficiently restricted.
+\end{abstract}
+
+\section*{Setting}
+
+Let $\Theta$ denote a fixed parameter system specifying admissible encodings,
+rules, and interpretation constraints under which problems induce languages
+$L(\Theta)\subseteq\Sigma^*$.
+We write $\mathbf{P}(\Theta)$ and $\mathbf{NP}(\Theta)$ for feasibility predicates
+evaluated relative to this fixed system.
+
+A \emph{problem description} $q$ is assumed to induce, together with $\Theta$,
+a language $L(q,\Theta)$.
+
+\section*{No Universal Classifier in General}
+
+\begin{note}
+There does not exist, in general, a total computable function
+\[
+F(q,\Theta)\in\{\mathbf{P},\mathbf{NP}\}
+\]
+that correctly decides, for all problem descriptions $q$ and parameter systems
+$\Theta$, whether $L(q,\Theta)\in\mathbf{P}$ or $L(q,\Theta)\in\mathbf{NP}$.
+\end{note}
+
+\begin{proof}[Proof sketch]
+Membership in $\mathbf{P}$ or $\mathbf{NP}$ is a nontrivial semantic property of
+the induced language $L(q,\Theta)$, defined via existential quantification over
+algorithms (e.g., the existence of a polynomial-time decider or verifier).
+Under any sufficiently expressive description formalism, problem instances
+$(q,\Theta)$ can uniformly encode arbitrary Turing-machine behavior.
+A universal classifier deciding $\mathbf{P}/\mathbf{NP}$ membership would therefore
+decide undecidable properties as a special case.
+Hence no such total computable function exists in full generality.
+\end{proof}
+
+\section*{Restricted Rule Systems}
+
+\begin{proposition}
+If, in addition to fixing $\Theta$, the admissible problem descriptions are
+restricted to a decidable fragment $\mathcal{Q}_\Theta$ whose feasibility
+classification is syntactically characterizable, then a total classifier
+\[
+F_\Theta:\mathcal{Q}_\Theta\to\{\mathbf{P},\mathbf{NP}\}
+\]
+may exist.
+\end{proposition}
+
+\begin{proof}[Justification]
+This situation arises when $\Theta$ collapses the space of admissible problems
+into a family with effective classification rules.
+Typical cases include:
+\begin{itemize}
+  \item Finite admissible problem catalogs, where membership is decidable by lookup.
+  \item Syntactically restricted fragments with known polynomial-time bounds.
+  \item Rule systems admitting tractability/intractability dichotomies under fixed encodings.
+\end{itemize}
+In such settings, feasibility classification becomes computable by construction.
+\end{proof}
+
+\begin{remark}
+Fixing $\Theta$ renders feasibility \emph{comparisons} well-typed, but does not,
+by itself, guarantee the existence of a universal mechanical classifier.
+Classification becomes possible only after further restricting the rule system
+and admissible description space.
+\end{remark}
+
+
+\end{document}
