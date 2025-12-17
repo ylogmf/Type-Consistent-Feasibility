@@ -169,6 +169,26 @@ does not guarantee the existence of an admissible polynomial-time
 verification relation as required by $\NP(\Theta)$.
 \end{observation}
 
+\begin{remark}[Feasibility over syntactic and admissibility regimes]
+Fix the alphabet \(\Sigma\) and the semantic interpretation \(\mathrm{Sem}\).
+For varying syntactic well-formedness and admissibility rules, define
+\[
+\Theta(\mathrm{Syn},\mathrm{Prag})
+\;:=\;
+(\Sigma,\mathrm{Syn},\mathrm{Sem},\mathrm{Prag}).
+\]
+The predicates
+\[
+\bigl\{\, P(\Theta(\mathrm{Syn},\mathrm{Prag})) \,\bigr\}_{(\mathrm{Syn},\mathrm{Prag})}
+\quad\text{and}\quad
+\bigl\{\, NP(\Theta(\mathrm{Syn},\mathrm{Prag})) \,\bigr\}_{(\mathrm{Syn},\mathrm{Prag})}
+\]
+thus form families indexed by syntactic and admissibility regimes.
+Their unions across varying \((\mathrm{Syn},\mathrm{Prag})\) correspond only to
+projections over parameter space and do not constitute well-defined complexity
+classes; in particular, they admit no intrinsic inclusion or comparison relation.
+\end{remark}
+
 \section{Concrete Instances}
 
 We now give explicit realizations under fixed parameter systems.
@@ -202,14 +222,17 @@ and hence
 
 \section{Conclusion}
 
-The relation between P and NP is not a property of languages alone, but of
-languages interpreted within a fixed parameter system. Once these parameters are
-made explicit, both equality and strict separation arise as realized states,
-rather than conjectural outcomes.
-Once the parameters underlying language formation are made explicit,
-the classical P vs NP question corresponds to a highly constrained slice
-of a broader feasibility landscape. Within this broader framework, separation between P and NP arises naturally
-whenever existence is decoupled from systematic constructibility.
+The relation between \(P\) and \(NP\) is not a property of languages in isolation, but of
+languages interpreted relative to a fixed parameter system.
+Making these parameters explicit clarifies the conditions under which feasibility
+comparisons are well-formed.
+
+Within this perspective, both equality and strict separation between \(P\) and \(NP\)
+arise as realized possibilities under appropriate parameter choices, rather than as
+conjectural outcomes of a single universal comparison.
+The classical \(P\) versus \(NP\) question thus corresponds to a highly constrained slice
+of a broader feasibility landscape, in which comparisons are meaningful only when the
+underlying syntactic and admissibility regimes are held fixed.
 
 \section*{Acknowledgements}
 
