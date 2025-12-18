@@ -1,0 +1,432 @@
+\documentclass[sigconf,nonacm]{acmart}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{cmap}        % better copy/paste from PDF
+\usepackage{microtype}   % better text shaping
+\usepackage{ragged2e}
+\usepackage{array} % 提供 \arraybackslash 和 \newcolumntype
+\usepackage{float}      % for [H]
+\usepackage{placeins}   % for \FloatBarrier (optional but useful)
+
+
+\geometry{margin=1in}
+
+\title{I Love Peporoni Pizza}
+\subtitle{Notes on Time, Interface, and Why None of This Prevents Dinner}
+\author{Yanlin Li}
+\affiliation{%
+  \country{USA}
+}
+\email{yl@ogmf.net}
+
+\date{\today}
+
+\newtheorem{observation}{Observation}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\begin{abstract}
+This note records a sequence of observations concerning time, causality, and
+quantum phenomena, framed through the concept of \emph{observer interfaces}.
+Rather than advancing a closed physical theory, this note records a sequence of
+structural observations concerning time, causality, and quantum phenomena,
+framed through the concept of observer interfaces. Classical continuity, quantum discontinuity,
+and apparent violations of causality are examined under a unified interface-based
+perspective.
+\end{abstract}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Many foundational debates in physics, computation, and philosophy revolve
+around perceived limits: limits of speed, limits of knowledge, limits of
+reversibility, and limits of decision.
+These limits are often treated as intrinsic properties of reality itself.
+
+This note adopts a different perspective.
+We argue that many such limits are more fruitfully understood as consequences
+of \emph{interfaces}—formal or informal contracts governing how systems interact,
+observe, and verify—rather than as statements about what exists.
+
+The observations presented here are modest in scope.
+They do not propose new laws, nor do they attempt to resolve classical open
+problems.
+Their purpose is to make explicit a structural viewpoint that recurs across
+multiple domains.
+
+For the purposes of this note, an \emph{observer interface} refers to any
+rule-constrained mapping that mediates between underlying generative states
+and the observer-accessible records, queries, or measurements derived from them.
+
+An \emph{observer interface} is a rule-constrained mapping
+\[
+\Phi : \mathcal{S} \to \mathcal{I},
+\]
+where \(\mathcal{S}\) denotes underlying generative states and
+\(\mathcal{I}\) denotes observer-accessible records, measurements,
+or descriptions.
+Distinct states in \(\mathcal{S}\) may induce identical interface
+data in \(\mathcal{I}\).
+
+\noindent\textbf{Remark.}
+No ontological claim is made regarding the nature of the generative states $\mathcal{S}$.
+The interface formalism is agnostic to their physical or metaphysical status; it characterizes
+only the rule-constrained mapping by which generative structure becomes observer-accessible.
+
+\section{Time and Irreversibility as Interface Phenomena}
+
+Time is commonly modeled as a fundamental dimension or parameter.
+From the present perspective, time may instead be viewed as an emergent feature
+of interface non-invertibility.
+
+When an observer interacts with a system through an interface that compresses
+information—discarding generative detail while preserving coarse consistency—
+the resulting interaction becomes irreversible.
+The ordering induced by this irreversible compression is experienced as time.
+
+Under this view, temporal asymmetry does not require asymmetric microdynamics.
+It arises whenever observation or interaction enforces a many-to-one projection
+from underlying structure to accessible data.
+\begingroup
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{lYY}
+\toprule
+\textbf{Phenomenon} &
+\textbf{Structural Cause (Interface Perspective)} &
+\textbf{Effect of Interface Enhancement} \\
+\midrule
+Gravity &
+Information compression across spatial degrees of freedom due to interface non-invertibility &
+Effective attraction weakens; trajectories become less biased as finer spatial distinctions are resolved \\
+Energy &
+Interface occupancy density (cardinality of microstate equivalence classes) &
+Effective mass or inertia decreases as degeneracy is resolved into distinguishable microstates \\
+Speed of light limit &
+Finite causal bandwidth of the observer interface &
+Maximum signal speed increases only if interface bandwidth is fundamentally expanded \\
+Arrow of time &
+Irreversible information compression under observation &
+Temporal asymmetry diminishes as reversible micro-dynamics become externally accessible \\
+Quantum nonlocal correlations &
+Projection of generative-level nonlocality through a constrained interface &
+Correlations appear less paradoxical as intermediate generative structure becomes observable \\
+No superluminal communication &
+Inability to control or steer interface fibers &
+Limited signaling may emerge only if the interface allows directed control of microstate selection \\
+\bottomrule
+\end{tabularx}
+\caption{Physical phenomena interpreted as consequences of interface structure, together with their expected modification under enhanced interface resolution or access.}
+\end{table*}
+
+\endgroup
+
+\section{Gravity and Black Holes as Interface-Induced Bias}
+
+Gravity is traditionally treated either as a fundamental interaction
+or as a manifestation of spacetime curvature.
+From the present interface-based perspective, gravity may be interpreted
+as an emergent bias induced by irreversible information compression
+across spatial degrees of freedom.
+
+Consider an observer interacting with a system through an interface
+that maps a high-dimensional generative structure onto a lower-dimensional
+observable description.
+When distinct micro-configurations differing in spatial arrangement
+are projected into equivalence classes under this interface,
+the resulting dynamics exhibit a systematic drift toward configurations
+of higher degeneracy.
+
+This degeneracy-induced drift appears, at the interface level,
+as an effective attraction.
+Importantly, no intrinsic attractive force is required at the
+generative level for this behavior to arise.
+The apparent gravitational tendency reflects the asymmetry introduced
+by many-to-one projection: more underlying states correspond to
+``closer'' or ``lower-potential'' configurations than to finely separated ones.
+
+Under this view, gravitational irreversibility is not fundamental,
+but interface-induced.
+The observer cannot reconstruct the discarded spatial distinctions,
+and the induced bias becomes temporally stable.
+This aligns with the empirical universality of gravitation:
+any sufficiently coarse interface that compresses spatial microstructure
+will induce a similar large-scale regularity.
+
+\begin{observation}[Interface-Induced Gravity]
+If an observer accesses spatial structure only through a
+non-invertible interface \(\Phi\), then interface-level dynamics
+exhibit a systematic aggregation bias toward configurations with
+larger preimages under \(\Phi\).
+This bias manifests as an effective attractive interaction.
+\end{observation}
+
+\begin{remark}
+Gravity is unavoidable for observers not because attraction is fundamental,
+but because any observer interface that irreversibly compresses spatial
+information induces a systematic aggregation bias in the space of
+accessible configurations.
+\end{remark}
+
+\subsection{Interface Enhancement and Gravitational Weakening}
+
+If the observer interface were enhanced so as to retain finer spatial
+distinctions—i.e., reducing the degree of compression—the effective
+gravitational bias would weaken.
+Trajectories that appear strongly curved under a coarse interface
+would appear progressively less constrained as additional degrees of
+freedom become externally accessible.
+
+In the limiting case of a fully invertible spatial interface,
+no gravitational attraction would be observed at all.
+Dynamics would be described directly in terms of generative structure,
+without emergent bias induced by information loss.
+
+This interpretation does not contradict general relativity.
+Rather, it reframes curvature as an interface-stable description of
+systematic compression effects, leaving the underlying generative
+ontology unspecified.
+
+The phenomena described above characterize observer-level capacities
+and constraints imposed by a fixed interface.
+They are not independent physical forces, but structural regularities
+induced by limitations on information access, control, and reversibility.
+The four fundamental interactions discussed next arise as stable
+instantiations within these interface-imposed constraints.
+
+\subsection{Black Holes as the Extreme Limit of Interface Compression}
+
+From the interface-based perspective developed above, black holes may be
+understood as the extreme regime of gravitational phenomena, corresponding
+to maximal interface-induced compression of spatial and generative
+information.
+
+In ordinary gravitational settings, interface non-invertibility induces a
+systematic bias in observable trajectories by collapsing distinct spatial
+micro-configurations into coarse equivalence classes.
+A black hole represents the limiting case in which this compression becomes
+so severe that almost all generative distinctions beyond a small set of
+global invariants are projected away.
+
+At the interface level, this manifests as an effective loss of retrievable
+structure.
+Observable quantities converge toward a minimal description, while the
+cardinality of the underlying equivalence classes grows without bound.
+This behavior does not require the absence of underlying generative
+information, but follows from the observer interface becoming maximally
+non-invertible.
+
+In this sense, a black hole is not characterized here as a breakdown of
+physical law, but as an interface-saturating gravitational configuration.
+Gravitational attraction and information compression coincide: gravity
+reaches a regime where further spatial distinctions no longer survive
+projection to the observable interface.
+
+This interpretation is compatible with existing physical theories.
+It does not assert new dynamical mechanisms, nor does it modify relativistic
+or quantum descriptions.
+Rather, it classifies black holes as boundary cases in which gravitational
+effects and interface compression become inseparable.
+
+This interpretation is classificatory rather than mechanistic: it concerns
+interface saturation and information compression, not horizon microphysics,
+evaporation dynamics, or specific proposals for information recovery.
+
+\section{The Four Fundamental Interactions as Interface-Conditioned Regularities}
+
+This section is organized around Table~2, which provides a compact
+interface-level synopsis of the four fundamental interactions.
+The surrounding text serves only to clarify the structural reading
+encoded in the table.
+
+We record a compact interface-level synopsis of the four fundamental interactions.
+The intent is not to reduce physical theory to a single principle, but to express
+a common structural reading: observable regularities may be shaped by the
+information retained (and discarded) by an observer interface.
+
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{lYYY}
+\toprule
+\textbf{Interaction} &
+\textbf{Interface-Retained Structure} &
+\textbf{Compression Character} &
+\textbf{Characteristic Interface Behavior} \\
+\midrule
+Gravitational &
+Scalar occupancy measures reflecting total degeneracy across spatial degrees of freedom &
+Fully scalar, sign-erasing compression over spatial configuration space &
+Universally attractive and unscreenable; manifests as a global bias acting on all energy-localized interface states \\
+Electromagnetic &
+Signed and vector-valued relational attributes (e.g., charge and orientation) &
+Partial compression preserving sign and directional information &
+Attractive or repulsive; screenable; long-range correlations supported by retained vector structure \\
+Weak &
+Chiral and flavor-asymmetric admissibility labels &
+Selective, symmetry-breaking compression over transition pathways &
+Short-range and non-universal; induces irreversible state transmutations at the interface level \\
+Strong &
+Multi-component relational constraints governing compositional admissibility &
+Minimal compression of internal relational structure; separability is suppressed &
+Confining and saturating; prevents stable interface representation of isolated constituents \\
+\midrule
+\bottomrule
+\end{tabularx}
+\caption{The four fundamental interactions interpreted through interface retention and information compression, with a unified structural interpretation across physical, logical, and mathematical layers.}
+\end{table*}
+
+\noindent\textbf{Unified Interpretation.}
+Across all four interactions, observed regularities arise from interface-constrained projections
+of underlying generative structure. Physics characterizes invariant appearances under shared
+observation interfaces; logic governs admissible inference and verification within those interfaces;
+mathematics provides a consistency-based meta-language extending beyond observational regimes
+without asserting recoverability or physical realization.
+
+
+The phenomena listed above characterize observer-level capacities and constraints
+imposed by a fixed interface.
+They are not independent physical forces, but structural regularities induced by
+limitations on information access, control, and reversibility.
+The four fundamental interactions discussed next arise as stable instantiations
+within these interface-imposed constraints.
+
+\section{On Non-Prevention of Dinner}
+
+None of the preceding observations impose practical constraints on ordinary
+activities.
+The existence of interface-induced irreversibility does not prevent meals,
+choices, or schedules.
+It merely explains why some processes cannot be undone, replayed, or perfectly
+predicted.
+
+Dinner remains decidable.
+
+\section{Scope}
+
+This note makes no claims regarding the resolution of open problems in physics or
+theoretical computer science.
+It introduces no new complexity classes, physical constants, or metaphysical
+commitments.
+
+Its contribution is interpretive.
+By treating time, hardness, and irreversibility as interface phenomena, it offers
+a unified lens through which otherwise disparate limits may be compared.
+
+\section{Broader Implications of Interface Constraints}
+
+\subsection{Hardness and the Separation of Verification and Construction}
+
+For an observer, the world guarantees only verifiable existence, not recoverable truth.
+All access to phenomena is mediated through finite and non-invertible observation interfaces.
+Such interfaces allow verification of consistency and admissibility relative to fixed rules,
+but they do not, in general, permit reconstruction of the underlying generative structure.
+
+Observation therefore establishes existence in a relational sense: there exists at least one
+underlying configuration compatible with the observed data. However, the interface does not
+guarantee that this configuration is uniquely identifiable, reconstructible, or even describable
+from within the interface itself. Multiple distinct generative structures may induce identical
+observational outcomes.
+
+Accordingly, truth understood as a uniquely recoverable, observer-independent object is not
+promised by observation. What remains well-defined is verification: the ability to determine
+whether an observation is consistent with the governing rules of the interface. This distinction
+separates epistemic validity from ontological completeness and clarifies the limits of observer-based
+knowledge.
+
+\subsection{Mathematics Beyond Observational Regimes}
+
+Mathematics is itself a formal language, but it is not an observational one.
+Unlike empirical or physical descriptions, mathematics does not require observability,
+constructibility, decidability, or interaction. Its foundational requirement is internal
+consistency.
+
+By relinquishing all interface-bound commitments, mathematics admits constructions that extend
+far beyond any observational regime. For example, the collection of all formal languages over a
+finite alphabet, defined set-theoretically as the power set of $\Sigma^*$, is mathematically
+well-formed despite the fact that most such languages are undecidable, undefinable, and
+inaccessible to any observer.
+
+Mathematics therefore functions as a meta-language: it does not operate within particular
+languages, but treats languages themselves as abstract objects. Its expressive scope arises not
+from increased descriptive power, but from minimal semantic obligation. Mathematics can quantify
+over structures without asserting their observability, realizability, or physical relevance.
+
+\subsection{Physics as Interface-Constrained Description}
+
+Physical laws do not describe reality in itself, but the stable invariants that persist under
+a given mode of observation. They characterize how phenomena appear when filtered through
+specific measurement interfaces governed by fixed rules.
+
+A physical law is thus an interface law: a compressed description of regularities that remain
+invariant across observers sharing comparable interfaces. The apparent universality of such laws
+does not arise from direct access to generative structure, but from the structural similarity of
+the observational constraints.
+
+Phenomena such as gravity illustrate this point. Gravitational behavior is unavoidable for
+observers operating within spacetime-based interfaces, not because gravity exhausts the nature
+of reality, but because it emerges inevitably under interface-level compression. Extreme cases,
+including black holes, correspond to limiting regimes of such compression rather than privileged
+ontological disclosures.
+
+\section{Self Note on Position and Discipline}
+
+This work is written from the position of an observer rather than a claimant of privileged
+insight. No assertion herein presumes access to truth beyond what is afforded by rule-governed
+observation.
+
+The universe is treated as a product of rules and structure rather than as a process with a
+terminal state. Nothing in this framework implies culmination or finality.
+
+Whether these ideas are understood, accepted, or rejected by others is structurally irrelevant.
+Verification does not depend on consensus, only on internal consistency relative to declared
+rules.
+
+A distinction is maintained between intuition and justification. Subjective conviction or
+experiential intensity is acknowledged but not granted epistemic authority. What may feel present
+is not thereby claimed as possessed. Rational restraint is preserved explicitly to prevent such
+slippage.
+
+\section{Conclusion: None of This Prevents Dinner}
+
+Interfaces shape what can be known, reversed, or constructed.
+They do so quietly, without announcing themselves as fundamental laws.
+
+The title of this note should not be overinterpreted.
+Neither should reality.
+
+The unifying interface-based perspective presented here should not be read
+as a claim that these phenomena share a single underlying mechanism.
+Rather, the claim is structural: diverse physical regularities may arise
+whenever dynamics are necessarily expressed through limited, non-invertible
+observer interfaces.
+
+\section*{Recommended Citation}
+
+\noindent\textbf{Recommended citation.}
+Li, Yanlin.
+\textit{I Love Peporoni Pizza: Notes on Time, Interface, and Why None of This Prevents Dinner},
+Independent research note, 2025.
+
+Available at: \url{https://github.com/ylogmf/Type-Consistent-Feasibility/tree/main/notes/solution-semantics/i_love_peporoni_pizza.pdf}.
+
+\end{document}
