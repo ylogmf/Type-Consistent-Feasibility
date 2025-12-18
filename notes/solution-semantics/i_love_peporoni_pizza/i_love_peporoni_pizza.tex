@@ -12,6 +12,7 @@
 \usepackage{array} % 提供 \arraybackslash 和 \newcolumntype
 \usepackage{float}      % for [H]
 \usepackage{placeins}   % for \FloatBarrier (optional but useful)
+\usepackage{mathtools} 
 
 
 \geometry{margin=1in}
@@ -333,6 +334,97 @@ By treating time, hardness, and irreversibility as interface phenomena, it offer
 a unified lens through which otherwise disparate limits may be compared.
 
 \section{Broader Implications of Interface Constraints}
+
+\subsection{On Comparing ``All of P'' and ``All of NP'' Across Parameter Systems}
+
+A common informal move is to compare ``the set of all languages in $P$'' with
+``the set of all languages in $NP$,'' or to compare their respective
+subcollections.  From the present parameterized/interface viewpoint, such
+comparisons are not well-formed unless the underlying parameter system is fixed.
+
+\paragraph{Parameter systems and induced universes.}
+Let $\mathsf{T}$ be a class of admissible parameter systems.  For each
+$\Theta \in \mathsf{T}$, let
+\[
+\Theta = (\Sigma_\Theta,\mathrm{Syn}_\Theta,\mathrm{Sem}_\Theta,\mathrm{Prag}_\Theta),
+\qquad
+U_\Theta := \Sigma_\Theta^* .
+\]
+A (classical) language under $\Theta$ is an object
+\[
+L \subseteq U_\Theta .
+\]
+Define the feasibility classes relative to $\Theta$ as
+\[
+P_\Theta \;:=\;\{\, L \subseteq U_\Theta \mid L \in P \text{ (over }U_\Theta\text{)} \,\},
+\]
+\[
+NP_\Theta \;:=\;\{\, L \subseteq U_\Theta \mid L \in NP \text{ (over }U_\Theta\text{)} \,\}.
+\]
+Note that $P_\Theta$ and $NP_\Theta$ are sets of languages, hence
+\[
+P_\Theta,\, NP_\Theta \subseteq \mathcal{P}(U_\Theta),
+\]
+where $\mathcal{P}(\cdot)$ denotes the power set.
+
+\paragraph{Disjoint-union packaging.}
+To even speak about ``all'' feasible languages across varying $\Theta$ without
+silently identifying different universes, the correct global objects are
+:
+\begin{align*}
+\mathsf{P}^{\star} &:= \{\, (\Theta, L) \mid \Theta \in \mathsf{T}, L \in P_\Theta \,\}, \\
+\mathsf{NP}^{\star} &:= \{\, (\Theta, L) \mid \Theta \in \mathsf{T}, L \in NP_\Theta \,\}.
+\end{align*}
+
+An element of $\mathsf{P}^\star$ is a pair $(\Theta,L)$ with $L\subseteq U_\Theta$,
+not a language in a single fixed universe.
+
+\begin{proposition}[Ill-typed global comparison]
+Without fixing a single parameter system $\Theta$, statements of the form
+``compare all of $P$ to all of $NP$'' are not well-formed as feasibility
+comparisons of languages.  In particular, expressions such as
+\[
+\bigcup_{\Theta\in\mathsf{T}} P_\Theta \;\subseteq\; \bigcup_{\Theta\in\mathsf{T}} NP_\Theta
+\]
+do not have a canonical interpretation, because the left and right sides do not
+denote languages in a fixed universe, and the underlying universes $U_\Theta$
+need not coincide.
+\end{proposition}
+
+\begin{proof}
+There are two independent typing obstructions.
+
+\smallskip
+\noindent\textbf{(1) Universe mismatch.}
+If $\Theta_1,\Theta_2\in\mathsf{T}$ have different alphabets (or different
+well-formedness regimes), then $U_{\Theta_1}=\Sigma_{\Theta_1}^*$ and
+$U_{\Theta_2}=\Sigma_{\Theta_2}^*$ are different underlying universes.
+Languages under $\Theta_1$ are subsets of $U_{\Theta_1}$, whereas languages under
+$\Theta_2$ are subsets of $U_{\Theta_2}$.  Without an explicit identification map
+between $U_{\Theta_1}$ and $U_{\Theta_2}$, there is no canonical meaning to
+set-theoretic operations that silently mix elements from $\mathcal{P}(U_{\Theta_1})$
+and $\mathcal{P}(U_{\Theta_2})$.
+
+\smallskip
+\noindent\textbf{(2) Object-level mismatch.}
+Even if all $\Theta$ share the same alphabet so that $U_\Theta = U$ is fixed,
+each $P_\Theta$ and $NP_\Theta$ is a \emph{set of languages}:
+\[
+P_\Theta,NP_\Theta \subseteq \mathcal{P}(U).
+\]
+Thus $\bigcup_{\Theta} P_\Theta$ and $\bigcup_{\Theta} NP_\Theta$ are also sets of
+languages, i.e.\ subsets of $\mathcal{P}(U)$, not languages (subsets of $U$).
+Feasibility predicates such as ``$\in P$'' and ``$\in NP$'' apply to languages
+$L\subseteq U$, not to arbitrary collections of languages.
+
+\smallskip
+Therefore, without fixing $\Theta$ (and hence the subject language object), global
+comparisons that range over varying parameter systems conflate distinct objects and
+lack a well-typed feasibility interpretation.  Meaningful comparison arises only
+after fixing a single $\Theta$, in which case the comparison is between properties
+of the same induced language universe.
+\end{proof}
+
 
 \subsection{Hardness and the Separation of Verification and Construction}
 
