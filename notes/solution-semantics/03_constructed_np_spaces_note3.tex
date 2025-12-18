@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage[none]{hyphenat}
+
+\title{Constructed NP Spaces:\\
+Geometry, Scarcity, and Navigation}
+\author{Yanlin Li}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Classical complexity theory focuses on the classification of languages into
+complexity classes such as $\mathbf{P}$ and $\mathbf{NP}$. This note adopts a
+complementary perspective: instead of classifying problems, we study the
+\emph{construction of feasibility spaces}. We argue that cryptography, artificial
+intelligence, and game theory can be unified under a geometric interpretation of
+$\mathbf{NP}$ as a space of admissible witnesses shaped by rules, encodings, and
+verification interfaces. Hardness, from this viewpoint, is a property of the
+constructed space rather than of individual algorithms.
+\end{abstract}
+
+\section{From Classification to Construction}
+
+The classical $\mathbf{P}$ versus $\mathbf{NP}$ question asks whether a given
+language belongs to one class or the other. Implicit in this formulation is the
+assumption that the problem space is fixed and that the primary task is
+classification.
+
+In many practical and theoretical settings, however, the central activity is
+different. Rather than asking whether a solution exists, practitioners
+deliberately design problem spaces in which solutions are scarce, structured, or
+strategically accessible. This motivates a shift in perspective: from the
+classification of languages to the construction of feasibility spaces.
+
+\section{NP as a Space of Witnesses}
+
+Fix a parameter system $\Theta$ specifying encodings, syntactic constraints, and
+admissibility rules. An $\mathbf{NP}$ problem under $\Theta$ induces a
+set-valued semantics via its verification predicate $V_\Theta(x,w)$:
+\[
+\mathcal{W}_\Theta(x) := \{\, w \mid V_\Theta(x,w)=1 \,\}.
+\]
+
+The witness set $\mathcal{W}_\Theta(x)$ may be empty, finite, infinite, sparse,
+structured, or degenerate. This suggests interpreting $\mathbf{NP}$ not merely as
+a complexity class, but as a geometry over witness sets embedded in a larger
+admissible space.
+
+\section{RSA as a Near-Point Slice}
+
+RSA-like constructions exemplify an extreme regime of this geometry. The ambient
+admissible space is astronomically large, while the valid witness set effectively
+collapses to a near-point slice, up to trivial symmetries.
+
+From this viewpoint, RSA is not difficult merely because integer factorization is
+hard, but because it engineers a feasibility space in which admissible witnesses
+occupy an exceptionally small region. Cryptographic hardness thus appears as a
+form of geometric scarcity rather than raw computational intractability.
+
+\section{Cryptography as Space Engineering}
+
+Modern cryptography can be reinterpreted as the deliberate construction of massive
+$\mathbf{NP}$ spaces whose solution regions are vanishingly small. Design levers
+include admissibility rules, encoding asymmetries, verification efficiency, and
+controlled rule externalization.
+
+Security, under this lens, is not a property of algorithms alone, but of the shape
+of the constructed feasibility space and the interfaces through which it may be
+explored.
+
+\section{AI and Game Theory as Navigation Problems}
+
+Where cryptography hides solutions, artificial intelligence and game theory
+navigate them. Learning algorithms explore feasible regions, game-theoretic
+agents reason over equilibrium sets, and planning systems traverse admissible
+witness manifolds.
+
+In this sense, AI does not ``solve'' $\mathbf{NP}$ problems in the classical
+sense. Instead, it navigates constructed $\mathbf{NP}$ spaces, prioritizing
+coverage, approximation, and strategic movement over isolation of unique
+solutions.
+
+\section{Scope and Non-Claims}
+
+This work makes no claims regarding the resolution of the classical $\mathbf{P}$
+versus $\mathbf{NP}$ question. It proposes no new cryptographic primitives and
+introduces no algorithmic separations.
+
+Its contribution is conceptual: to articulate a unifying geometric view in which
+cryptography, artificial intelligence, and strategic reasoning are understood as
+different modes of interaction with constructed $\mathbf{NP}$ spaces.
+
+\section{Conclusion}
+
+The classical question asks whether a solution exists. This note asks instead
+what kind of solution space has been constructed, and who is able to move within
+it. This shift reframes computational hardness as a property of space design,
+rather than of isolated decision procedures.
+
+\end{document}

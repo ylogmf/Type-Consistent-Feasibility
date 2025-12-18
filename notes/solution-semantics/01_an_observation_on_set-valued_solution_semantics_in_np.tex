@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+
+\title{An Observation on Set-Valued Solution Semantics in NP}
+\author{Yanlin Li \\ Independent Researcher}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We observe that the defining semantic content of NP is not the existence of a single solution,
+but the existence of a \emph{verifiable set of witnesses}. Under this view, point solutions such as
+those arising in cryptographic settings correspond to degenerate cases of set-valued solution
+semantics. This unifies point, interval, and general solution-set interpretations within a single
+framework. We briefly note that this perspective naturally suggests a geometric interpretation,
+without developing it here.
+\end{abstract}
+
+\section{Observation}
+
+\paragraph{NP as set-valued semantics.}
+By definition, a language $L \subseteq \Sigma^*$ belongs to $\mathbf{NP}$ if there exists a
+polynomial-time verifier $V$ such that
+\[
+x \in L \iff \exists w \; V(x,w) = 1 .
+\]
+For each input $x$, this induces a \emph{solution set}
+\[
+W(x) := \{ w \mid V(x,w) = 1 \}.
+\]
+Thus, the semantic content of NP is not tied to any particular witness, but to the
+\emph{existence of a non-empty, efficiently verifiable set of witnesses}. Verification operates
+over sets, not points.
+
+\paragraph{Empty solution sets.}
+The same set-based semantics also naturally accounts for unsatisfiable instances.
+When no witness satisfies the verification predicate, we have
+\[
+W(x) = \varnothing .
+\]
+Thus, the absence of solutions is represented as the empty witness set, rather than
+as a distinct semantic category.
+
+\paragraph{Point solutions as degenerate sets.}
+A ``point solution'' corresponds to the case
+\[
+|W(x)| = 1 ,
+\]
+while instances admitting multiple witnesses satisfy $|W(x)| > 1$.
+All cases are uniformly represented within the same set-valued framework.
+
+
+\paragraph{Unified view.}
+From this perspective, point solutions, intervals of solutions, and more general regions or
+collections of solutions are treated uniformly as witness sets.
+The distinction lies only in the cardinality and structure of $W(x)$, not in the underlying
+verification principle.
+This unification highlights that NP is fundamentally a theory of verifiable solution sets,
+with point solutions appearing as boundary cases.
+
+\paragraph{Remark.}
+This set-based viewpoint naturally suggests a geometric interpretation of solution structure.
+We do not pursue that interpretation here.
+
+\end{document}
