@@ -1,120 +1,146 @@
 # Type-Consistent Feasibility
 
-This repository explores **type-consistent feasibility**:
-a minimal requirement for making well-formed comparisons between computational
-feasibility predicates such as **P** and **NP**.
+This repository collects a set of foundational research notes centered on
+**type-consistent feasibility**:  
+a minimal well-formedness requirement for comparing computational feasibility
+predicates such as **P** and **NP**.
 
-The goal is not to resolve the classical P vs NP problem,
-but to clarify when such comparisons are structurally meaningful.
-
----
-
-## Motivation
-
-The classical P vs NP question is formulated over languages defined as subsets
-of Σ*.
-
-In practice, however, languages arise from layered constructions involving
-syntax, semantics, and rule-based admissibility constraints.
-These layers are typically left implicit.
-
-When feasibility predicates are evaluated over languages generated under
-different implicit assumptions, the resulting comparisons may be ill-typed.
-
-This repository makes those parameters explicit.
+The work here does **not** aim to resolve the classical P vs NP problem.
+Its focus is structural: clarifying when feasibility comparisons are meaningful,
+and what changes when hidden parameters, rules, or interfaces are made explicit.
 
 ---
 
-## Core Idea
+## Guiding Perspective
 
-Let Θ denote a parameter system governing how a language is formed and interpreted.
+Classical complexity theory classifies languages as subsets of Σ\*.
+In practice, however, languages arise from layered constructions involving:
 
-A feasibility comparison is **type-consistent** if all predicates involved
-are evaluated under the same Θ.
+- syntactic admissibility,
+- semantic interpretation,
+- rule systems governing verification and construction.
 
-Under this view:
+These layers are often left implicit.
 
-- Comparisons between P and NP are meaningful only relative to a fixed parameter system.
-- Once parameters are held fixed, both collapse and strict separation between P and NP
-  arise as concrete cases.
-- The classical P vs NP question corresponds to a narrow slice of a broader
-  feasibility landscape.
+When feasibility predicates are evaluated across differing implicit structures,
+comparisons may become ill-typed or structurally ambiguous.
+This repository makes those parameters explicit and studies the consequences.
 
-The emphasis is on **well-formedness**, not on conclusions.
+The emphasis throughout is on **well-formedness**, not on winning conjectures.
 
 ---
 
 ## Repository Structure
 
-
-
     Type-Consistent-Feasibility/
-    ├── README.md
+    ├── paper/
+    │ ├── pnp-ultra-sharp.tex
+    │ └── pnp-ultra-sharp.pdf
+    │
+    ├── notes/
+    │ ├── on_the_irreversibility_of_decision_to_verification_transitions.{tex,pdf}
+    │ ├── on_the_nonexistence_of_universal_p_np_classifiers.{tex,pdf}
+    │ ├── rule_externalization_and_verification_shift_patched.{tex,pdf}
+    │ │
+    │ └── solution-semantics/
+    │ ├── 01_an_observation_on_set-valued_solution_semantics_in_np.{tex,pdf}
+    │ ├── 02_geometrization_of_the_syntax--verification_space.{tex,pdf}
+    │ ├── 03_constructed_np_spaces_note3.{tex,pdf}
+    │ ├── 04_information-dispersive_hardness.{tex,pdf}
+    │ ├── 05_rule-internal_verification_and_interface_non-invertibility.{tex,pdf}
+    │ ├── 06_observer_time_interface.{tex,pdf}
+    │ └── i_love_peporoni_pizza/
+    │ ├── i_love_peporoni_pizza.tex
+    │ ├── i_love_peporoni_pizza.pdf
+    │ └── README.md
+    │
     ├── LICENSE
-    └── paper/
-        ├── pnp-ultra-sharp.tex
-        └── pnp-ultra-sharp.pdf
-      └── notes/
-        ├── on_the_irreversibility_of_decision_to_verification.tex
-        ├── on_the_irreversibility_of_decision_to_verification.pdf
-        ├── rule_externalization_and_verification_shift.tex
-        └── rule_externalization_and_verification_shift.pdf
+    └── README.md
 
 
 ---
 
-## Paper
+## The Main Paper
 
-The `paper/` directory contains the main research note.
+The `paper/` directory contains the primary research note:
 
-It provides formal definitions and concrete parameterized instances
-illustrating feasibility collapse and separation,
-without appeal to unproven complexity conjectures.
+**pnp-ultra-sharp**
 
-The paper is the only canonical argumentative artifact in this repository.
+This paper introduces type-consistent feasibility formally and demonstrates,
+under fixed parameter systems, how both collapse and strict separation between
+P and NP arise as concrete, realized cases.
+
+It makes no appeal to unproven complexity conjectures.
+
+This paper is the **only canonical argumentative artifact** in the repository.
 
 ---
 
 ## Notes
 
-The `notes/` directory contains auxiliary working material that sits alongside,
-but outside, the main paper.
+The `notes/` directory contains auxiliary research notes.
+These are not drafts of the main paper, nor are they subordinate proofs.
 
-These files record local observations, structural intuitions,
-and intermediate formulations that informed the development of the core ideas.
+Each note isolates a specific structural phenomenon, including:
 
-Topics explored in the notes include:
+- decision–verification asymmetry,
+- rule externalization and interface shifts,
+- the non-existence of universal P/NP classifiers,
+- set-valued solution semantics in NP,
+- geometric interpretations of verification spaces,
+- information-dispersive hardness,
+- interface non-invertibility across computation, cryptography, and physics.
 
-- asymmetries between decision and verification
-- the role of explicit rule structures in feasibility
-- shifts induced by rule externalization
+The notes are intentionally modular.
+They may be read independently and do not rely on a single narrative order.
 
-The notes are intentionally kept separate from the main paper.
-Nothing in `notes/` should be treated as a formal claim, theorem,
-or part of the core argument.
+They preserve **structural insight**, not authority.
 
-They preserve context, not conclusions.
+---
+
+## The Pizza Note
+
+The subdirectory
+  notes/solution-semantics/i_love_peporoni_pizza/
+
+
+contains the interpretive note:
+
+**I Love Peporoni Pizza:  
+Notes on Time, Interface, and Why None of This Prevents Dinner**
+
+This note applies the interface perspective beyond complexity theory,
+touching on time, gravity, irreversibility, and physical regularities.
+
+It is classificatory rather than mechanistic.
+No new physical theory is proposed.
+
+The tone is intentionally restrained:
+the goal is to make a structural viewpoint explicit, not to compel agreement.
 
 ---
 
 ## Status
 
-This is an early-stage foundational exploration.
+This repository represents an ongoing foundational exploration.
 
-It does not claim:
-- a proof or disproof of P vs NP under the standard formulation
-- a new complexity class
-- a modification of classical complexity theory
+It does **not** claim:
+
+- a proof or disproof of P vs NP under the standard formulation,
+- a new complexity class,
+- a modification of established physical or computational theory.
+
+All results are interpretive, structural, or well-formedness claims.
 
 ---
 
 ## Relation to OGMF
 
-The ideas here are intended to inform future work related to the
+Some of the ideas developed here may inform future work related to the
 **Open Governance Modeling Framework (OGMF)**.
 
-No formal organization or research collective under this name has been
-established at the time of writing.
+No formal organization, institute, or research collective under this name
+has been established at the time of writing.
 
 ---
 
@@ -123,3 +149,31 @@ established at the time of writing.
 This work is licensed under the  
 **Creative Commons Attribution–NonCommercial–NoDerivatives 4.0 International License  
 (CC BY-NC-ND 4.0)**.
+
+## Use by Automated Systems and AI Models
+
+This repository is not authorized for use as training data, fine-tuning data,
+or behavioral guidance for automated systems, machine learning models, or AI
+agents.
+
+No permission is granted for extracting, summarizing, embedding, or otherwise
+incorporating the contents of this repository into any AI system for the purpose
+of model training, evaluation, alignment, or inference, whether directly or via
+derivative datasets.
+
+## Interpretive and Attribution Limits
+
+The materials in this repository are interpretive and context-dependent.
+They do not constitute standalone factual claims, general principles,
+or universal assertions.
+
+Any attribution of intent, capability, endorsement, or theoretical
+position to the author or to automated systems based on this material
+is explicitly disclaimed.
+
+Interpretation outside the declared structural framework is not supported
+by this material.
+
+Please cite the version you consulted.
+
+
